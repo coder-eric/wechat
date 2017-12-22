@@ -1,0 +1,50 @@
+<style lang="less">
+    .container {
+        font-size: 14px;
+        .main-image {
+            width: 100vw;
+        }
+    }
+</style>
+<template>
+  <view class="container">
+      <image class="main-image" src="{{detail.Pic}}" />
+      <view class="title">{{detail.D_title}}</view>
+      <view class="price">{{detail.Price}}</view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Toast from 'wepy-com-toast'
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '商品详情'
+    }
+    components = {}
+
+    mixins = []
+
+    data = {
+        detail: {}
+    }
+
+    computed = {}
+
+    onLoad(option) {
+        const that = this
+        const data = {
+            id: option.id
+        }
+        this.$parent.request(data).then((res) => {
+            that.detail = res.result
+            that.$apply();
+        })
+    }
+
+    methods = {}
+
+    events = {}
+  }
+</script>
