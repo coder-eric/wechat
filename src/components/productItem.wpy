@@ -1,0 +1,60 @@
+<style lang="less">
+  	.product-item {
+		width: 46vw;
+		padding-bottom: 6px;
+		.image {
+			width: 46vw;
+			height: 46vw;
+		}
+		.title {
+			color: #bbb;
+			font-size: 12px;
+		}
+		.bottom-feild {
+			display: flex;
+			justify-content: space-between;
+			.price {
+				color: red;
+				.font {
+					color: #ccc;
+					font-size: 10px;
+				}
+			}
+		}
+  	}
+</style>
+<template>
+  	<view class="product-item">
+        <navigator url="detail?id={{item.ID}}">
+            <image class="image" src="{{item.Pic}}" />
+            <view class="title">{{item.D_title}}</view>
+            <view class="bottom-feild">
+                <view class="price">￥{{item.Price}}<span class="font">券后</span></view>
+                <view class="count">销量:{{item.Sales_num}}</view>
+            </view>
+        </navigator>
+  	</view>
+</template>
+
+<script>
+	// 商品组件
+	import wepy from 'wepy'
+
+	export default class productItem extends wepy.component {
+
+		props = {
+			item: {
+				type:Object,
+				default: {}
+			}
+		}
+
+		data = {}
+
+		events = {}
+
+		methods = {}
+
+		onLoad () {}
+  }
+</script>
