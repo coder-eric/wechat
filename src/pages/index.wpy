@@ -1,19 +1,15 @@
 <style lang="less">
-    .container {
+    .main {
         font-size: 14px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        .item {
-            width: 46vw;
-            padding-bottom: 6px;
-        }
     }
 </style>
 <template>
-    <view class="container">
+    <view class="main">
         <repeat for="{{list}}" key="index" index="index" class="list">
-            <productItem :item="item" class="item"></productItem>
+            <productItem :item="item"></productItem>
         </repeat>
     </view>
 </template>

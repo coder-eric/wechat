@@ -24,16 +24,14 @@
   	}
 </style>
 <template>
-  	<view class="product-item">
-        <navigator url="detail?id={{item.ID}}">
-            <image class="image" src="{{item.Pic}}" />
-            <view class="title">{{item.D_title}}</view>
-            <view class="bottom-feild">
-                <view class="price">￥{{item.Price}}<span class="font">券后</span></view>
-                <view class="count">销量:{{item.Sales_num}}</view>
-            </view>
-        </navigator>
-  	</view>
+	<navigator url="detail?id={{item.ID}}" class="product-item">
+		<image class="image" src="{{item.Pic}}" />
+		<view class="title">{{item.D_title}}</view>
+		<view class="bottom-feild">
+			<view class="price">￥{{item.Price}}<span class="font">券后</span></view>
+			<view class="count">销量:{{item.Sales_num}}</view>
+		</view>
+	</navigator>
 </template>
 
 <script>
