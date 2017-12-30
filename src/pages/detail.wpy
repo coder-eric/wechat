@@ -13,6 +13,7 @@
       <view class="title">{{detail.Title}}</view>
       <view class="price">{{detail.Price}}</view>
       <view class="price">{{detail.Introduce}}</view>
+      <view class="price">{{tkl}}</view>
   </view>
 </template>
 
@@ -28,12 +29,18 @@
     mixins = []
 
     data = {
-      detail: {}
+      detail: {},
+      tkl: ''
     }
 
     computed = {}
 
     onLoad(option) {
+      this.getDetail(option)
+      this.getTkl(option)
+    }
+
+    getDetail (option) {
       const that = this
       const data = {
         r: 'Port/index',
@@ -41,6 +48,18 @@
       }
       this.$parent.request(data).then((res) => {
         that.detail = res.result
+        that.$apply()
+      })
+    }
+
+    getTkl (option) {
+      const that = this
+      const url = 'https://xiaoliu.duapp.com/api/transform'
+      const data = {
+        id: option.id
+      }
+      this.$parent.request(data).then((res) => {
+        that.tkl = res.data
         that.$apply()
       })
     }
