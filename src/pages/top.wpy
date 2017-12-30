@@ -18,9 +18,9 @@
   import wepy from 'wepy'
   import productItem from '../components/productItem'
 
-  export default class Index extends wepy.page {
+  export default class Top extends wepy.page {
     config = {
-      navigationBarTitleText: '优惠券列表'
+      navigationBarTitleText: '人气榜'
     }
     components = {
       productItem
@@ -38,7 +38,7 @@
       const that = this
       const data = {
         r: 'Port/index',
-        type: 'paoliang',
+        type: 'top100',
         page: 1
       }
       this.$parent.request(data).then((res) => {
@@ -46,7 +46,9 @@
         that.$apply()
       })
     }
+
     methods = {}
+
     events = {}
   }
 </script>

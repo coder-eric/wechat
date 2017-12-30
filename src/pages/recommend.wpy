@@ -18,9 +18,9 @@
   import wepy from 'wepy'
   import productItem from '../components/productItem'
 
-  export default class Index extends wepy.page {
+  export default class Recommend extends wepy.page {
     config = {
-      navigationBarTitleText: '优惠券列表'
+      navigationBarTitleText: '小编推荐'
     }
     components = {
       productItem
@@ -32,17 +32,25 @@
       list: []
     }
 
+    watch = {
+        list () {
+            this.list.map(item => {
+                item.ID = item.GoodsID
+            })
+        }
+    }
+
     computed = {}
 
     onLoad() {
       const that = this
       const data = {
-        r: 'Port/index',
-        type: 'paoliang',
+        r: 'goodsLink/www',
+        type: 'www_quan',
         page: 1
       }
       this.$parent.request(data).then((res) => {
-        that.list = res.result
+        that.list = res.data.result
         that.$apply()
       })
     }

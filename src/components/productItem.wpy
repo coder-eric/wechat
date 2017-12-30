@@ -1,58 +1,75 @@
 <style lang="less">
-  	.product-item {
-		width: 46vw;
-		padding-bottom: 6px;
-		.image {
-			width: 46vw;
-			height: 46vw;
-		}
-		.title {
-			color: #bbb;
-			font-size: 12px;
-		}
-		.bottom-feild {
-			display: flex;
-			justify-content: space-between;
-			.price {
-				color: red;
-				.font {
-					color: #ccc;
-					font-size: 10px;
-				}
-			}
-		}
-  	}
+  .product-item {
+    width: 46vw;
+    padding-bottom: 6px;
+    .image-feild {
+      position: relative;
+      width: 46vw;
+      height: 46vw;
+      .image {
+        width: 46vw;
+        height: 46vw;
+      }
+      .quan {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background: red;
+        color: #fff;
+        padding: 2px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+      }
+    }
+    .title {
+      color: #bbb;
+      font-size: 12px;
+    }
+    .bottom-feild {
+      display: flex;
+      justify-content: space-between;
+      .price {
+        color: red;
+        .font {
+          color: #ccc;
+          font-size: 10px;
+        }
+      }
+    }
+  }
 </style>
 <template>
-	<navigator url="detail?id={{item.ID}}" class="product-item">
-		<image class="image" src="{{item.Pic}}" />
-		<view class="title">{{item.D_title}}</view>
-		<view class="bottom-feild">
-			<view class="price">￥{{item.Price}}<span class="font">券后</span></view>
-			<view class="count">销量:{{item.Sales_num}}</view>
-		</view>
-	</navigator>
+  <navigator url="detail?id={{item.ID}}" class="product-item">
+    <view class="image-feild">
+      <image class="image" src="{{item.Pic}}_200x200.jpg" />
+      <view class="quan">券￥{{item.Quan_price}}</view>
+    </view>
+    <view class="title">{{item.D_title}}</view>
+    <view class="bottom-feild">
+      <view class="price">￥{{item.Price}}<span class="font">券后</span></view>
+      <view class="count">销量:{{item.Sales_num}}</view>
+    </view>
+  </navigator>
 </template>
 
 <script>
-	// 商品组件
-	import wepy from 'wepy'
+  // 商品组件
+  import wepy from 'wepy'
 
-	export default class productItem extends wepy.component {
+  export default class productItem extends wepy.component {
+    props = {
+      item: {
+        type: Object,
+        default: {}
+      }
+    }
 
-		props = {
-			item: {
-				type:Object,
-				default: {}
-			}
-		}
+    data = {}
 
-		data = {}
+    events = {}
 
-		events = {}
+    methods = {}
 
-		methods = {}
-
-		onLoad () {}
+    onLoad () {}
   }
 </script>

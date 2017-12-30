@@ -1,23 +1,23 @@
 <style lang="less">
-    .container {
-        font-size: 14px;
-        .main-image {
-            width: 100vw;
-            height: 100vw;
-        }
+  .container {
+    font-size: 14px;
+    .main-image {
+      width: 100vw;
+      height: 100vw;
     }
+  }
 </style>
 <template>
   <view class="container">
-      <image class="main-image" src="{{detail.Pic}}" />
-      <view class="title">{{detail.D_title}}</view>
+      <image class="main-image" src="{{detail.Pic}}_375x375.jpg" />
+      <view class="title">{{detail.Title}}</view>
       <view class="price">{{detail.Price}}</view>
+      <view class="price">{{detail.Introduce}}</view>
   </view>
 </template>
 
 <script>
   import wepy from 'wepy'
-  import Toast from 'wepy-com-toast'
 
   export default class Index extends wepy.page {
     config = {
@@ -28,20 +28,21 @@
     mixins = []
 
     data = {
-        detail: {}
+      detail: {}
     }
 
     computed = {}
 
     onLoad(option) {
-        const that = this
-        const data = {
-            id: option.id
-        }
-        this.$parent.request(data).then((res) => {
-            that.detail = res.result
-            that.$apply();
-        })
+      const that = this
+      const data = {
+        r: 'Port/index',
+        id: option.id
+      }
+      this.$parent.request(data).then((res) => {
+        that.detail = res.result
+        that.$apply()
+      })
     }
 
     methods = {}
