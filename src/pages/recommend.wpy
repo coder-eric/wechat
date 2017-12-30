@@ -33,11 +33,11 @@
     }
 
     watch = {
-        list () {
-            this.list.map(item => {
-                item.ID = item.GoodsID
-            })
-        }
+      list () {
+        this.list.map(item => {
+          item.ID = item.GoodsID
+        })
+      }
     }
 
     computed = {}

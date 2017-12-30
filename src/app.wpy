@@ -44,7 +44,7 @@ export default class extends wepy.app {
           iconPath: 'image/icon.png',
           selectedIconPath: 'image/icon.png',
           text: '人气榜'
-        },  {
+        }, {
           pagePath: 'pages/recommend',
           iconPath: 'image/icon.png',
           selectedIconPath: 'image/icon.png',

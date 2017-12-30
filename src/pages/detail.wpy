@@ -58,7 +58,7 @@
       const data = {
         id: option.id
       }
-      this.$parent.request(data).then((res) => {
+      this.$parent.request(data, url).then((res) => {
         that.tkl = res.data
         that.$apply()
       })
